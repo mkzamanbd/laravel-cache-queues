@@ -21,6 +21,11 @@ module.exports = {
             backgroundColor: ['responsive', 'hover', 'focus', 'checked'],
             borderColor: ['checked'],
             outline: ['hover', 'active', 'focus', 'checked'],
+            spacing: {
+                '72': '18rem',
+                '84': '21rem',
+                '96': '24rem',
+              }
         },
     },
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -16,14 +17,8 @@ class UserController extends Controller
     public function index()
     {
         // get all user
-        DB::enableQueryLog();
-        $users = User::query()->latest()->paginate(100);
-        $queryLog = DB::getQueryLog();
-        $queryTime = 0;
-        foreach($queryLog as $item){
-            $queryTime +=$item['time'];
-        };
-        return view('users.index', compact('users', 'queryTime'));
+        $users = User::query()->latest()->paginate(103);
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -33,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // create user
+        return view('users.create');
     }
 
     /**
