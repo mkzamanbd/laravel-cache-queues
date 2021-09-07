@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('user', UserController::class)->middleware(['auth']);
+Route::get('send-notification', [NotificationController::class, 'sendNotificationMail'])->name('send.notification')->middleware(['auth']);
 
 require __DIR__.'/auth.php';

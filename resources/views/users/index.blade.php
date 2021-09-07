@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight flex justify-between">
             <span>Users</span>
-            {{-- <span>About {{ count($users) }} results ({{ number_format(($queryTime/60),2) }} millisecond)</span> --}}
+            <a href="{{ route('send.notification') }}">Send Notification</a>
         </h2>
     </x-slot>
 
